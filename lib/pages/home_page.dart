@@ -2,6 +2,7 @@ import 'package:app_flutter_game_cards/constants.dart';
 import 'package:app_flutter_game_cards/pages/nivel_page.dart';
 import 'package:app_flutter_game_cards/theme.dart';
 import 'package:app_flutter_game_cards/widgets/logo.dart';
+import 'package:app_flutter_game_cards/widgets/recordes.dart';
 import 'package:app_flutter_game_cards/widgets/start_button.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,8 @@ class HomePage extends StatelessWidget {
           StartButton(
               title: "Modo UCL",
               color: MemoryGameTheme.color,
-              action: () => selecionarNivel(Modo.ucl, context))
+              action: () => selecionarNivel(Modo.ucl, context)),
+          Recordes(),
         ],
       ),
     ));
