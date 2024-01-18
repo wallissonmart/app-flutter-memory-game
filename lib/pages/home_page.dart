@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               title: "Modo UCL",
               color: MemoryGameTheme.color,
               action: () => selecionarNivel(Modo.ucl, context)),
-          Recordes(),
+          const Recordes(),
         ],
       ),
     ));

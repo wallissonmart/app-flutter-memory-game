@@ -27,6 +27,37 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(modo == Modo.ucl
+                    ? Icons.my_location
+                    : Icons.touch_app_rounded),
+                const SizedBox(width: 10),
+                const Text('18', style: TextStyle(fontSize: 25)),
+              ],
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(30.0),
+              child: Image.asset('images/logo.jpg',
+                  width: 40, height: 40, fit: BoxFit.cover),
+            ),
+            TextButton(
+              child: const Text(
+                'Sair',
+                style: TextStyle(fontSize: 18),
+              ),
+              onPressed: () => Navigator.pop(context),
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: GridView.count(
           shrinkWrap: true,
