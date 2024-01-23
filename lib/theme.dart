@@ -23,7 +23,7 @@ class MemoryGameTheme {
   static const Color background = Color(0XFF121212);
 
   static ButtonStyle outlineButtonStyle({
-    Color color = const Color.fromARGB(255, 152, 42, 42),
+    Color color = Colors.white,
     double padding = 24,
   }) {
     return OutlinedButton.styleFrom(
