@@ -2,17 +2,20 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:app_flutter_game_cards/constants.dart';
+import 'package:app_flutter_game_cards/controllers/game_controller.dart';
+import 'package:app_flutter_game_cards/models/game_opcao.dart';
 import 'package:app_flutter_game_cards/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CardGame extends StatefulWidget {
   final Modo modo;
-  final int opcao;
+  final GameOpcao gameOpcao;
 
   const CardGame({
     Key? key,
     required this.modo,
-    required this.opcao,
+    required this.gameOpcao,
   }) : super(key: key);
 
   @override
@@ -41,7 +44,7 @@ class _CardGameState extends State<CardGame>
 
   AssetImage getImage(double angulo) {
     if (angulo > 0.5 * pi) {
-      return AssetImage('images/${widget.opcao.toString()}.jpg');
+      return AssetImage('images/${widget.gameOpcao.opcao.toString()}.jpg');
     } else {
       return widget.modo == Modo.normal
           ? const AssetImage('images/football-background.png')
@@ -50,10 +53,19 @@ class _CardGameState extends State<CardGame>
   }
 
   flipCard() {
-    if (!animation.isAnimating) {
+    final game = context.read<GameController>();
+
+    if (!animation.isAnimating &&
+        !widget.gameOpcao.matched &&
+        !widget.gameOpcao.selected &&
+        !game.jogadaCompleta) {
       animation.forward();
-      Timer(const Duration(seconds: 2), () => animation.reverse());
+      game.escolher(widget.gameOpcao, resetCard);
     }
+  }
+
+  resetCard() {
+    animation.reverse();
   }
 
   @override

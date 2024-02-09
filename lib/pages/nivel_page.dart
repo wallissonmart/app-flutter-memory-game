@@ -1,4 +1,6 @@
 import 'package:app_flutter_game_cards/constants.dart';
+import 'package:app_flutter_game_cards/game_settings.dart';
+import 'package:app_flutter_game_cards/models/game_play.dart';
 import 'package:app_flutter_game_cards/widgets/card_nivel.dart';
 import 'package:flutter/material.dart';
 
@@ -9,29 +11,22 @@ class NivelPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final niveis = GameSettings.niveis
+        .map((n) => CardNivel(gamePlay: GamePlay(modo: modo, nivel: n)))
+        .toList();
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         title: const Text('Nível do Jogo'),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 48),
         child: GridView.count(
-          crossAxisCount: 3,
-          mainAxisSpacing: 20,
-          crossAxisSpacing: 20,
-          padding: const EdgeInsets.all(24),
-          children: [
-            CardNivel(modo: modo, nivel: 6),
-            CardNivel(modo: modo, nivel: 8),
-            CardNivel(modo: modo, nivel: 10),
-            CardNivel(modo: modo, nivel: 12),
-            CardNivel(modo: modo, nivel: 16),
-            CardNivel(modo: modo, nivel: 18),
-            CardNivel(modo: modo, nivel: 20),
-            CardNivel(modo: modo, nivel: 24),
-            CardNivel(modo: modo, nivel: 28),
-          ],
-        ),
+            crossAxisCount: 3,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 20,
+            padding: const EdgeInsets.all(24),
+            children: niveis),
       ),
     );
   }

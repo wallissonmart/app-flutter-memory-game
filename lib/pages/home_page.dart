@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Logo(),
+          const Logo(),
           StartButton(
               title: "Modo normal",
               color: Colors.white,

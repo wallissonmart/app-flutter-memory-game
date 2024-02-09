@@ -23,6 +23,7 @@ class _RecordesState extends State<Recordes> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.only(top: 12.0),
       color: Colors.grey[900],
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -45,7 +46,7 @@ class _RecordesState extends State<Recordes> {
               onTap: () => showRecordes(Modo.normal),
             ),
             ListTile(
-              title: const Text('Modo Round 6'),
+              title: const Text('Modo UCL'),
               trailing: const Icon(Icons.chevron_right),
               onTap: () => showRecordes(Modo.ucl),
             )
