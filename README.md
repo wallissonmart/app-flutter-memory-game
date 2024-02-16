@@ -1,4 +1,4 @@
-# app_flutter_game_cards
+# app_flutter_game_card
 
 A new Flutter project.
 
