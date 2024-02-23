@@ -28,7 +28,6 @@ class _CardGameState extends State<CardGame>
 
   @override
   void initState() {
-    print(widget.modo);
     super.initState();
     animation = AnimationController(
       vsync: this,

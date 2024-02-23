@@ -42,7 +42,6 @@ abstract class GameControllerBase with Store {
 
   _generateCards() {
     List<int> cardOpcoes = GameSettings.cardOpcoes.sublist(0)..shuffle();
-    print(GameSettings.cardOpcoes);
     cardOpcoes = cardOpcoes.sublist(0, _numPares);
     gameCards = [...cardOpcoes, ...cardOpcoes]
         .map(

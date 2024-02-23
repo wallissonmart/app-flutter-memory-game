@@ -38,12 +38,12 @@ class FeedbackGame extends StatelessWidget {
               ? StartButton(
                   title: 'Tentar novamente',
                   color: Colors.white,
-                  action: () => {},
+                  action: () => {controller.restartGame()},
                 )
               : StartButton(
                   title: 'Próximo nível',
                   color: Colors.white,
-                  action: () => {},
+                  action: () => {controller.nextLevel()},
                 ),
         ],
       ),

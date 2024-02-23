@@ -19,12 +19,13 @@ class Logo extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 40),
           child: RichText(
+            textAlign: TextAlign.center,
             text: TextSpan(
-              text: 'Memory Game ',
+              text: 'Jogo da Memória ',
               style: DefaultTextStyle.of(context).style.copyWith(fontSize: 30),
               children: const [
                 TextSpan(
-                  text: 'Football',
+                  text: 'Futebol',
                   style: TextStyle(color: MemoryGameTheme.color),
                 )
               ],
